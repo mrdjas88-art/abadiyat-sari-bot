@@ -271,13 +271,14 @@ async def step_4_watched(call: types.CallbackQuery):
     )
     await call.answer()
 
-@dp.channel_post_handler(content_types=types.ContentTypes.VIDEO)
-async def get_channel_video_id(message: types.Message):
-    print(message.video.file_id)
+@dp.message_handler(content_types=types.ContentTypes.DOCUMENT)
+async def get_doc_id(message: types.Message):
+    await message.answer(message.document.file_id)
 
 if __name__ == "__main__":
 
     executor.start_polling(dp, skip_updates=True)
+
 
 
 
