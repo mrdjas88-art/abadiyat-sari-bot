@@ -271,13 +271,14 @@ async def step_4_watched(call: types.CallbackQuery):
     )
     await call.answer()
 
-@dp.message_handler(content_types=types.ContentTypes.DOCUMENT)
-async def get_doc_id(message: types.Message):
-    await message.answer(message.document.file_id)
+@dp.message_handler(content_types=types.ContentTypes.ANY)
+async def debug_all(message: types.Message):
+    print("TYPE:", message.content_type)
 
 if __name__ == "__main__":
 
     executor.start_polling(dp, skip_updates=True)
+
 
 
 
