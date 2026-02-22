@@ -272,12 +272,16 @@ async def step_4_watched(call: types.CallbackQuery):
     await call.answer()
 
 @dp.message_handler(content_types=types.ContentTypes.ANY)
-async def debug_all(message: types.Message):
-    print("TYPE:", message.content_type)
+async def get_any_file_id(message: types.Message):
+    if message.video:
+        await message.answer(message.video.file_id)
+    elif message.document:
+        await message.answer(message.document.file_id)
 
 if __name__ == "__main__":
 
     executor.start_polling(dp, skip_updates=True)
+
 
 
 
