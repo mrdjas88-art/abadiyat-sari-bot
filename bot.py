@@ -245,7 +245,7 @@ async def step_4_watched(call: types.CallbackQuery):
     keyboard = types.InlineKeyboardMarkup(row_width=1)
     keyboard.add(
         types.InlineKeyboardButton(
-            text="🕯️ «ABADIYAT SARI» kanalida yo'lni davom ettirish",
+            text="🕯️ «ABADIYAT SARI» kanaliga obuna bo'lish",
             url="https://t.me/TowardsEternity_UZ"
         ),
         types.InlineKeyboardButton(
@@ -274,6 +274,7 @@ async def step_4_watched(call: types.CallbackQuery):
 if __name__ == "__main__":
 
     executor.start_polling(dp, skip_updates=True)
+
 
 
 
