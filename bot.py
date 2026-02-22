@@ -16,7 +16,7 @@ def get_progress_bar(step):
 
 
 # 1. AVTOMATIK TABRIKLASH
-@dp.message_handler()
+@dp.message_handler(content_types=types.ContentTypes.TEXT)
 async def welcome_new_user(message: types.Message):
     user_id = message.from_user.id
     
@@ -278,6 +278,7 @@ async def get_channel_video_id(message: types.Message):
 if __name__ == "__main__":
 
     executor.start_polling(dp, skip_updates=True)
+
 
 
 
